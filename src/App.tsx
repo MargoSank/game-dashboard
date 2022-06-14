@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Navigate, Route, Routes} from "react-router-dom";
+import {Admin} from "./components/Admin-View/Admin";
+import {AppContainer} from "./components/AppContainer";
+import {Navigation} from "./components/Navigation";
+import {Live} from "./components/Live-View/Live";
+import {AppCtx, initialContext} from "./store/contex";
+import {Provider} from "react-redux";
+import {store} from "./store/store";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <>
+            <Navigation/>
+            <AppContainer>
+                <Provider store={store}>
+                    <AppCtx.Provider value={initialContext}>
+                    <Routes>
+                        <Route path="*" element={<Navigate to="/live" replace/>}/>
+                        <Route path="/live" element={<Live/>}/>
+                        <Route path="/admin" element={<Admin/>}/>
+                    </Routes>
+                </AppCtx.Provider>
+                </Provider>
+            </AppContainer>
+        </>
+    );
 }
 
 export default App;

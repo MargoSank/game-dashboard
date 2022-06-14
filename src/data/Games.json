@@ -1,0 +1,59 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "gameName": "Amazing Link Zeus",
+      "img": "https://www.gamesglobal.com/images/games/thumbs/AmazingLinkZeus.jpg?w=1080&q=75"
+    },
+    {
+      "id": 2,
+      "gameName": "Pile 'Em Up",
+      "img": "https://content.optibet.ee/_games/292ed636-58c1-4842-9213-df8ae1560315/icon"
+    },
+    {
+      "id": 3,
+      "gameName": "Epic Crystal Deluxe",
+      "img": "https://content.optibet.ee/_games/30072d1f-eb9b-4b43-bada-c522abd9d9cf/icon"
+    },
+    {
+      "id": 4,
+      "gameName": "9 Masks Of Fire",
+      "img": "https://www.gamesglobal.com/images/games/thumbs/9MasksofFire.jpg?w=1080&q=75"
+    },
+    {
+      "id": 5,
+      "gameName": "777 slots",
+      "img": "https://play-lh.googleusercontent.com/ij_qGJH87-YUpeKnZ_CLZZ6u0qKY3_Au2SiWeeDsIWrnY6pcPe6879q2qIIGYLPo9UNw"
+    },
+    {
+      "id": 6,
+      "gameName": "Jackpot Party",
+      "img": "https://play-lh.googleusercontent.com/wtVgLsukCvnhTZGVE0ldMd6TKWKUBSiV3NspSL0BE3uHQNbfIjzntSspXcFCtC1xfg"
+    },
+    {
+      "id": 7,
+      "gameName": "Stumpy McDoodles",
+      "img": "https://content.optibet.ee/_games/03910e5b-c76b-4a13-b751-6648d82f09ac/icon"
+    },
+    {
+      "id": 8,
+      "gameName": "20 Golden Coins",
+      "img": "https://content.optibet.ee/_games/90eaf0ef-b485-4478-8dca-45228645c920/icon"
+    },
+    {
+      "id": 9,
+      "gameName": "Heart of Vegas",
+      "img": "https://casinosslovenija.com/wp-content/uploads/2021/10/heart-of-vegas.png"
+    },
+    {
+      "id": 10,
+      "gameName": "Caesars Slots",
+      "img": "https://i.pinimg.com/564x/74/bf/2d/74bf2dfcdb92715ebcaff307dc32186c.jpg"
+    },
+    {
+      "id": 11,
+      "gameName": "Lightning Link",
+      "img": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/7f/36/cd/7f36cd28-1269-b97c-8d66-09dcb7968f73/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg"
+    }
+  ]
+}
