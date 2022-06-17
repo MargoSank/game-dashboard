@@ -1,13 +1,11 @@
-import {PropsWithChildren} from "react";
 import {CardAccordion} from "./CardAccordion";
-import {GameItem} from "../../interfaces";
-
+import {GameItem} from "../../core/interfaces";
 
 export interface NewGameAccordionProps {
     onCreate: (game: GameItem) => void;
 }
 
-export const NewGameAccordion = (props: PropsWithChildren<NewGameAccordionProps>) => {
+export const NewGameAccordion = (props: NewGameAccordionProps) => {
     const emptyGame = {
         id: -1,
         gameName: "",
@@ -21,6 +19,7 @@ export const NewGameAccordion = (props: PropsWithChildren<NewGameAccordionProps>
         body="open to add"
         isNewGame={true}
         onSave={props.onCreate}
-    >
-    </CardAccordion>;
+        onDelete={() => {
+        }}
+    />
 }

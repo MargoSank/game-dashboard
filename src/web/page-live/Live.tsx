@@ -1,11 +1,10 @@
 import {Grid} from "@mui/material";
 import {CardGame} from "./CardGame";
 import {useSelector} from "react-redux";
-import {RootState} from "../../store/store";
-
+import {RootState} from "../../core/store/store";
 
 export const Live = () => {
-    const games = useSelector((state: RootState) => state.gamesSlice.games)
+    const games = useSelector((state: RootState) => state.games)
 
     return <Grid container columnSpacing={4} rowSpacing={4}>
         {games.map(game => {

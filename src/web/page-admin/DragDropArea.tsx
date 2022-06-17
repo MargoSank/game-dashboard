@@ -1,8 +1,6 @@
 import type {Identifier, XYCoord} from 'dnd-core'
-import {PropsWithChildren, useEffect, useRef} from 'react'
+import {PropsWithChildren, useRef} from 'react'
 import {useDrag, useDrop} from 'react-dnd'
-import { getEmptyImage } from 'react-dnd-html5-backend';
-import CustomDragLayer from "./CustomDragLayer";
 import {Box} from "@mui/material";
 
 const ItemTypes = {
@@ -89,16 +87,10 @@ export const DragDropArea = (props: PropsWithChildren<DragDropAreaProps>) => {
             isDragging: monitor.isDragging(),
         }),
     })
-
-    // useEffect(() => {
-    //     dragPreview(getEmptyImage())
-    // }, []);
-
     const opacity = isDragging ? 0 : 1;
     drag(drop(ref));
     return (
         <Box ref={ref} data-handler-id={handlerId} sx={{opacity}}>
-            {/*<CustomDragLayer />*/}
             {props.children}
         </Box>
     )
