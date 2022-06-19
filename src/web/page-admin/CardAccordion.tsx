@@ -41,6 +41,10 @@ export const CardAccordion = (props: CardAccordionProps) => {
                 img: image
             })
             setInputError(false)
+            if (props.isNewGame) {
+                setName('');
+                setImage('')
+            }
         } else {
             setInputError(true)
         }
@@ -57,7 +61,7 @@ export const CardAccordion = (props: CardAccordionProps) => {
                    elevation={5}
                    sx={{marginTop: 1, marginBottom: 1, cursor: 'move'}}
         >
-            <AccordionSummary id={props.game.id.toString()} expandIcon={<ExpandMoreIcon/>}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                 {!props.isNewGame && <>
                     <DragIndicatorIcon sx={{marginRight: '5px'}}/>
                 </>}
@@ -69,17 +73,18 @@ export const CardAccordion = (props: CardAccordionProps) => {
                     <TextField
                         required
                         error={inputError && name.length === 0}
-                        id="outlined-required"
+                        id="game-name-required"
                         label="Game name"
-                        defaultValue={name}
+                        value={name}
                         onChange={nameHandle}
+                        inputProps={{maxLength: 32}}
                     />
                     <TextField
                         required
                         error={inputError && image.length === 0}
-                        id="outlined-required"
+                        id="game-image-required"
                         label="Image URL"
-                        defaultValue={image}
+                        value={image}
                         onChange={imageHandle}
                     />
                     {!props.isNewGame && <>

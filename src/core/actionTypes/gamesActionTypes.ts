@@ -1,5 +1,31 @@
 import {GameItem} from "../interfaces";
 
+export const GET_GAMES = "gamesActionTypes/GET_GAMES";
+
+export interface GetGamesAction {
+    type: typeof GET_GAMES;
+}
+
+export const GET_GAMES_REQUEST = "gamesActionTypes/GET_GAMES_REQUEST";
+
+export interface GetGamesRequestAction {
+    type: typeof GET_GAMES_REQUEST;
+}
+
+export const GET_GAMES_SUCCESS = "gamesActionTypes/GET_GAMES_SUCCESS";
+
+export interface GetGamesSuccessAction {
+    type: typeof GET_GAMES_SUCCESS;
+    games: GameItem[];
+}
+
+export const GET_GAMES_FAILURE = "gamesActionTypes/GET_GAMES_FAILURE";
+
+export interface GetGamesFailureAction {
+    type: typeof GET_GAMES_FAILURE;
+    error: string;
+}
+
 export const ADD_GAME = "gamesActionTypes/ADD_GAME";
 
 export interface AddGameAction {
@@ -109,6 +135,10 @@ export interface ReorderGamesFailureAction {
 }
 
 export type GamesAction =
+    | GetGamesAction
+    | GetGamesRequestAction
+    | GetGamesSuccessAction
+    | GetGamesFailureAction
     | AddGameAction
     | AddGameRequestAction
     | AddGameSuccessAction

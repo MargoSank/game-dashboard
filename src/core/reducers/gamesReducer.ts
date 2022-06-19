@@ -1,15 +1,15 @@
 import * as actions from "../actionTypes/gamesActionTypes";
 import {GameItem} from "../interfaces";
 
-const initialState = require("../data/Games.json").games as GameItem[];
-
 export type GamesState = GameItem[];
 
 export default function gamesReducer(
-    state: GamesState = initialState,
+    state: GamesState = [],
     action: actions.GamesAction
 ): GamesState {
     switch (action.type) {
+        case actions.GET_GAMES_SUCCESS:
+            return action.games;
         case actions.ADD_GAME_SUCCESS:
             const newGame = action.game;
             return [...state, newGame];

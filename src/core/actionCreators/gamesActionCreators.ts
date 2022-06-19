@@ -1,6 +1,33 @@
 import * as actions from "../actionTypes/gamesActionTypes";
 import {GameItem} from "../interfaces";
 
+// GET games
+export function getGames(): actions.GetGamesAction {
+    return {
+        type: actions.GET_GAMES,
+    };
+}
+
+export function getGamesRequest(): actions.GetGamesRequestAction {
+    return {
+        type: actions.GET_GAMES_REQUEST
+    };
+}
+
+export function getGamesSuccess(games: GameItem[]): actions.GetGamesSuccessAction {
+    return {
+        type: actions.GET_GAMES_SUCCESS,
+        games: games,
+    };
+}
+
+export function getGamesFailure(error: string): actions.GetGamesFailureAction {
+    return {
+        type: actions.GET_GAMES_FAILURE,
+        error
+    };
+}
+
 // ADD new game
 export function addGame(game: GameItem): actions.AddGameAction {
     return {

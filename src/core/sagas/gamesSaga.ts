@@ -1,19 +1,29 @@
 import {all, call, fork, put, takeEvery, takeLatest} from "redux-saga/effects";
-import {addGame, deleteGame, reorderGames, updateGame} from "../services/gamesServices";
+import {addGame, deleteGame, getGames, reorderGames, updateGame} from "../services/gamesServices";
 import * as actionCreators from "../actionCreators/gamesActionCreators";
 import * as actionTypes from "../actionTypes/gamesActionTypes";
 
-function* onAddGame({game}: actionTypes.AddGameAction) {
+export function* onGetGames() {
+    try {
+        yield put(actionCreators.getGamesRequest());
+        const {games} = yield call(getGames);
+        yield put(actionCreators.getGamesSuccess(games));
+    } catch (error) {
+        yield put(actionCreators.getGamesFailure("Error in games getting "));
+    }
+}
+
+export function* onAddGame({game}: actionTypes.AddGameAction) {
     try {
         yield put(actionCreators.addGameRequest());
         const {game: gameFromServer} = yield call(addGame, game);
         yield put(actionCreators.addGameSuccess(gameFromServer));
     } catch (error) {
-        yield put(actionCreators.addGameFailure("Error in add new game"));
+        yield put(actionCreators.addGameFailure("Error in adding new game"));
     }
 }
 
-function* onDeleteGame({gameId}: actionTypes.DeleteGameAction) {
+export function* onDeleteGame({gameId}: actionTypes.DeleteGameAction) {
     try {
         yield put(actionCreators.deleteGameRequest());
         yield call(deleteGame);
@@ -24,7 +34,7 @@ function* onDeleteGame({gameId}: actionTypes.DeleteGameAction) {
 }
 
 
-function* onUpdateGame({game}: actionTypes.UpdateGameAction) {
+export function* onUpdateGame({game}: actionTypes.UpdateGameAction) {
     try {
         yield put(actionCreators.updateGameRequest());
         yield call(updateGame);
@@ -34,7 +44,7 @@ function* onUpdateGame({game}: actionTypes.UpdateGameAction) {
     }
 }
 
-function* onReorderGames({gamesIds}: actionTypes.ReorderGamesAction) {
+export function* onReorderGames({gamesIds}: actionTypes.ReorderGamesAction) {
     try {
         yield put(actionCreators.reorderGamesRequest());
         yield call(reorderGames);
@@ -46,6 +56,7 @@ function* onReorderGames({gamesIds}: actionTypes.ReorderGamesAction) {
 
 
 function* watchOnGames() {
+    yield takeEvery(actionTypes.GET_GAMES, onGetGames);
     yield takeEvery(actionTypes.ADD_GAME, onAddGame);
     yield takeEvery(actionTypes.DELETE_GAME, onDeleteGame);
     yield takeEvery(actionTypes.UPDATE_GAME, onUpdateGame);

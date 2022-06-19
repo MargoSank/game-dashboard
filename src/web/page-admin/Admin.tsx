@@ -13,7 +13,6 @@ import {DndProvider} from "react-dnd";
 import {RootState} from "../../core/store/store";
 import {addGame, deleteGame, reorderGames, updateGame} from "../../core/actionCreators/gamesActionCreators";
 
-
 export const Admin = () => {
     const dispatch = useDispatch()
     const games = useSelector((state: RootState) => state.games)
@@ -52,7 +51,6 @@ export const Admin = () => {
 
     const renderGameAccordion = useCallback(
         (game: GameItem, index: number) => {
-            console.log(game)
             return (
                 <DragDropArea
                     key={game.id}

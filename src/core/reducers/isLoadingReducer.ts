@@ -8,8 +8,6 @@ const getLoadingMatches = (actionType: string) =>
   /(.*)_(REQUEST|SUCCESS|FAILURE)/.exec(actionType);
 
 const isLoadingReducer = (state: IsLoadingState = {}, action: Action) => {
-  console.log('isLoadingReducer', action)
-
   const matches = getLoadingMatches(action.type);
 
   if (!matches) {
